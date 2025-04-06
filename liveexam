@@ -1,0 +1,28 @@
+abstract class Vehicles {
+  double _speed;
+
+  Vehicles(this._speed);
+  double get speed => _speed;
+  set speed(double value) {
+    if (value >= 0) {
+      _speed = value;
+    } else {
+      throw ArgumentError("Speed cannot be negative");
+    }
+  }
+
+  void move();
+}
+class Car extends Vehicles {
+  Car(double speed) : super(speed);
+  void move() {
+    print("The car is moving at $_speed km/h");
+  }
+}
+void main() {
+  Car car = Car(70);
+  car.move();
+
+  car.speed = 60;
+  car.move();
+}
